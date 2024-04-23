@@ -1,0 +1,167 @@
+/*
+ ** StokerUI
+ */
+
+// $body-bg: transparent;
+// $body-color: #212529;
+
+// this colour is used for primary buttons
+// $blue: rgb(23, 78, 150) !default;
+// this colour is used for success buttons
+// $green: #1e740b !default;
+
+// $indigo: #6610f2 !default;
+// $purple: #563d7c !default;
+// $pink: #e83e8c !default;
+// $red: #dc3545 !default;
+// $orange: #BE5504 !default;
+// $yellow: #ffc107 !default;
+// $teal: #20c997 !default;
+// $cyan: #17a2b8 !default;
+// $gray: #868e96 !default;
+// $cyan: #17a2b8 !default;
+// $grey-dark: #292929 !default;
+// $dark: #354052 !default;
+
+// $brand-primary: #BE5504 !default;
+// $brand-success: #2ba210 !default;
+// $brand-info: #0069ff !default;
+// $brand-warning: #ffc107 !default;
+// $brand-danger: #dc3545 !default;
+// $font-family-sans-serif: 'IBM Plex Serif', serif !default;
+
+//$border-radius: 0rem;
+
+// $link-color: rgb(23, 78, 150);
+
+// $spacer: .8rem; //  Specifies the default spacer value for our spacer utilities. (default: 1rem)
+// $enable-rounded: true; //  Enables predefined border-radius styles on various components.
+// $enable-shadows: false; //  Enables predefined box-shadow styles on various components.
+// $enable-gradients: false; //  Enables predefined gradients via background-image styles on various components.
+// $enable-transitions: true; //  Enables predefined transitions on various components.
+// $enable-grid-classes: true; //  Enables the generation of CSS classes for the grid system (e.g., .container, .row, .col-md-1, etc.).
+// $enable-caret: true; //  Enables the caret on dropdowns
+// $enable-print-styles: true; //  Enables styles for optimizing printing.
+// $enable-rfs: true;
+// $enable-validation-icons: true;
+// $enable-negative-margins: false;
+// $enable-deprecation-messages: false;
+// $enable-important-utilities: true;
+// $enable-prefers-reduced-motion-media-query: true;
+// $enable-pointer-cursor-for-buttons: true;
+
+// // input shadow/focus
+//  $input-btn-focus-width: .04rem !default;
+//  $input-focus-border-color: rgba($gray, .3) !default;
+//  $input-focus-box-shadow: 0 0 0 $input-btn-focus-width rgba($gray, .2) !default;
+
+// $breakpoints: (xs: 0,
+//     sm: 576px,
+//     md: 768px,
+//     lg: 992px,
+//     xl: 1200px);
+
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+
+/* GLOBAL STYLES
+----------------------------------------------- */
+
+@-ms-viewport {
+    width: device-width
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+[v-cloak]>* {
+    display: none
+}
+
+html,
+body, #__app, #__layout {
+    height: 100%;
+    width: 100%;
+    max-width: 100%
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+
+    background-color: #f3f3f3;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Noto Serif SC', serif;
+  font-weight: 700;
+}
+
+p {
+  font-family: 'IBM Plex Serif', serif;
+  font-size: 1rem;
+  line-height: 1.4rem;
+  color: #000;
+}
+
+.news p {
+    font-size: 1.3rem;
+    line-height: 1.9rem;
+    font-family: "IBM Plex Serif",serif;
+    color: #000;
+}
+
+.news .intro-quote {
+
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    image-orientation: none !important;
+    max-width: 100%;
+    height: auto;
+
+    &.object-fit {
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.2s;
+}
+
+.fade-enter,
+.fade-leave-to {
+    opacity: 0;
+}
+
+.loading-wrap .loading-icon {
+    z-index: 9999;
+    width: 6rem;
+    height: 6rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -3rem;
+    color: #dcdee2;
+}
