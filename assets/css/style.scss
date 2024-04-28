@@ -95,18 +95,22 @@ body {
     background-color: #f3f3f3;
 }
 
+.navbar-brand {
+    font-family: 'Jersey 15', serif;
+}
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: 'Noto Serif SC', serif;
-  font-weight: 700;
+  font-family: 'Kanit', serif;
+  font-weight: 600;
 }
 
 p {
-  font-family: 'IBM Plex Serif', serif;
+  font-family: 'Roboto', serif;
   font-size: 1rem;
   line-height: 1.4rem;
   color: #000;

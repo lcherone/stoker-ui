@@ -6,14 +6,21 @@ module.exports = {
   },
   parserOptions: {
     parser: '@babel/eslint-parser',
+    ecmaVersion: 11,
     requireConfigFile: false
   },
   extends: [
     '@nuxtjs',
     'plugin:nuxt/recommended'
   ],
-  plugins: [
-  ],
+  plugins: [],
   // add your custom rules here
-  rules: {}
+  rules: {
+    semi: [2, 'never'],
+    'vue/valid-v-slot': 'off',
+    camelcase: 'off',
+    'no-console': 'off',
+    'no-debugger': 'off',
+    'vue/multi-word-component-names': 'off'
+  }
 }

@@ -1,54 +1,69 @@
 <template>
-  <div
-    :id="`modal-${_uid}`"
-    class="modal fade"
-    :data-backdrop="options.static ? 'static' : false"
-    tabindex="-1"
-    role="dialog"
-    aria-hidden="true"
-  >
-    <!-- dynamic component -->
-    <template v-if="options.component">
-      <component :is="options.component" v-bind="options.props"></component>
-    </template>
+  <div>
+    <div
+      :id="`modal-${_uid}`"
+      class="modal fade"
+      :data-backdrop="config.static ? 'static' : false"
+      :data-keyboard="config.static ? 'static' : false"
+      role="dialog"
+    >
+      <!-- dynamic component -->
+      <template v-if="config.component">
+        <component
+          :is="config.component"
+          v-bind="config.props"
+          v-on="config.events"
+        />
+      </template>
 
-    <!-- main with options -->
-    <template v-else>
-      <div
-        :class="['modal-dialog', options.size || 'modal-md', { 'modal-dialog-centered': options.centered }]"
-        role="document"
-      >
-        <div class="modal-content">
-          <!-- header -->
-          <div :class="['modal-header', options.color]">
-            <h5 class="modal-title">{{ options.title }}</h5>
-            <button type="button" class="close" @click="hide()">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
+      <!-- main with config -->
+      <template v-else>
+        <div
+          :class="[
+            'modal-dialog',
+            config.size || 'modal-md',
+            { 'modal-dialog-centered': config.centered },
+          ]"
+          role="document"
+        >
+          <div class="modal-content">
+            <!-- header -->
+            <div :class="['modal-header', config.color]">
+              <h1 class="modal-title">
+                {{ config.title }}
+              </h1>
+              <button type="button" class="close" @click="hide()">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
 
-          <!-- body -->
-          <div class="modal-body" v-html="options.text"></div>
+            <!-- body -->
+            <!-- eslint-disable-next-line vue/no-v-html -->
+            <div class="modal-body" v-html="config.text" />
 
-          <!-- footer, render out buttons -->
-          <div class="modal-footer">
-            <button
-              type="button"
-              v-for="(button, index) in buttons"
-              :key="index"
-              :class="['btn', button.type]"
-              @click.stop="click(index, $event)"
-            >
-              {{ button.title }}
-            </button>
+            <!-- footer, render out buttons -->
+            <div class="modal-footer">
+              <button
+                v-for="(button, index) in buttons"
+                :key="index"
+                type="button"
+                :class="['btn', button.type]"
+                @click.stop="click(index, $event)"
+              >
+                {{ button.title }}
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-    </template>
+      </template>
+    </div>
   </div>
 </template>
 
 <script>
+import $ from 'jquery'
+import 'bootstrap'
+
 import modal from './modal.js'
 
 export default {
@@ -59,7 +74,7 @@ export default {
     }
   },
   data: () => ({
-    options: {
+    config: {
       centered: false,
       size: 'modal-md',
       color: '',
@@ -73,23 +88,34 @@ export default {
     defaultButtons: [{ title: 'Close', type: 'btn-secondary' }]
   }),
   computed: {
-    buttons() {
-      return Array.isArray(this.options.buttons) && this.options.buttons.length
-        ? this.options.buttons
+    buttons () {
+      return Array.isArray(this.config.buttons) && this.config.buttons.length
+        ? this.config.buttons
         : this.defaultButtons
     }
   },
-  beforeMount() {
+  beforeMount () {
     //
-    modal.event.$on('show', options => {
-      this.options = options
+    modal.event.$on('show', (config) => {
+      this.config = config
+      $(`#modal-${this._uid}`).modal({
+        backdrop: this.config.static ? 'static' : true
+        // keyboard: !this.config.static
+      })
       this.show()
     })
     //
-    modal.event.$on('hide', () => this.hide())
+    modal.event.$on('hide', () => {
+      this.hide()
+      setTimeout(() => {
+        this.config.component = undefined
+        this.config.buttons = undefined
+        this.config.props = undefined
+      }, 500)
+    })
   },
   methods: {
-    click(index, event) {
+    click (index, event) {
       const button = this.buttons[index]
       if (button && typeof button.cb === 'function') {
         button.cb(...arguments)
@@ -97,22 +123,15 @@ export default {
         this.hide()
       }
     },
-    show() {
-      this.$nextTick(function () {
-        $('#modal-' + this._uid).modal('show')
-      })
+    show () {
+      $(`#modal-${this._uid}`).modal('show')
     },
-    hide() {
-      this.$nextTick(function () {
-        $('#modal-' + this._uid).modal('hide')
-      })
+    hide () {
+      $(`#modal-${this._uid}`).modal('hide')
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.modal-backdrop.show {
-  opacity: 0.6;
-}
 </style>

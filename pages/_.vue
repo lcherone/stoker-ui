@@ -1,9 +1,8 @@
 <template>
-  <div class="container content py-2">
+  <div class="container-fluid py-2">
     <SEOHead
       title="404 page not found"
       description="The page you are looking for was not found, it may have been renamed, moved or removed. Check the link/url and try again."
-      image="social-card-image.png"
       canonical="/"
     />
 

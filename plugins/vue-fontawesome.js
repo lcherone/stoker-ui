@@ -17,4 +17,4 @@ config.autoAddCss = false
 library.add(fas, far, fab)
 
 // apply <fa icon="..." spin></fa> component
-Vue.component('fa', FontAwesomeIcon)
+Vue.component('Fa', FontAwesomeIcon)

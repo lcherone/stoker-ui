@@ -1,5 +1,5 @@
 <template>
-  <div class="container content py-2">
+  <div class="container-fluid py-2">
     <section>
       <div id="breadcrumbs">
         <span>

@@ -1,2 +1,4 @@
-import modal from "./modal"
-export default modal
+import Vue from 'vue'
+import modal from './modal'
+
+Vue.use(modal)
