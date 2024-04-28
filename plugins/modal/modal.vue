@@ -5,7 +5,6 @@
       class="modal fade"
       :data-backdrop="config.static ? 'static' : false"
       :data-keyboard="config.static ? 'static' : false"
-      role="dialog"
     >
       <!-- dynamic component -->
       <template v-if="config.component">
@@ -24,11 +23,10 @@
             config.size || 'modal-md',
             { 'modal-dialog-centered': config.centered },
           ]"
-          role="document"
         >
           <div class="modal-content">
             <!-- header -->
-            <div :class="['modal-header', config.color]">
+            <div :class="['modal-header', config.colour]">
               <h1 class="modal-title">
                 {{ config.title }}
               </h1>
@@ -77,7 +75,7 @@ export default {
     config: {
       centered: false,
       size: 'modal-md',
-      color: '',
+      colour: '',
       static: false,
       title: '',
       text: '',
@@ -133,5 +131,17 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+.modal-header {
+  background-color: #f1f1f2;
+  padding: .5rem 1rem;
+  .close {
+    padding: 10px;
+    margin: -5px;
+  }
+}
+.modal-title {
+  font-size: 24px;
+  font-weight: 400;
+}
 </style>

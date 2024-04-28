@@ -56,7 +56,7 @@ export default {
 
     .close {
       padding: 0.5rem 1rem;
-      font-size: 32px;
+      font-size: 28px;
       text-shadow: none !important;
 
       @media (min-width: 0px) and (max-width: 480px) {

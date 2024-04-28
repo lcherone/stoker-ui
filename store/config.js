@@ -7,14 +7,6 @@ import Vue from 'vue'
  */
 export const state = () => ({
   loading: true,
-  site_name: '',
-  page_title: '',
-  metatags: {},
-  facebook_url: '',
-  twitter_url: '',
-  website_url: '',
-  modules: {},
-  loading: true,
   deviceOrientation: null,
   device: '',
   state: ''

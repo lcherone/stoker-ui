@@ -31,7 +31,7 @@ export const mutations = {
       Vue.set(state, i, data[i])
     }
     // set as not longer loading
-    state.loading = false
+    Vue.set(state, 'loading', false)
   },
 
   /**
@@ -57,12 +57,12 @@ export const mutations = {
    * @param {*} state
    * @param {*} param1
    */
-  setNotification (state, {
-    key,
-    value
-  }) {
-    Vue.set(state.notifications, key, value)
-  },
+  // setNotification (state, {
+  //   key,
+  //   value
+  // }) {
+  //   Vue.set(state.notifications, key, value)
+  // },
 
   /**
    * Delete single state item
@@ -72,9 +72,9 @@ export const mutations = {
    * @param {*} state
    * @param {*} param1
    */
-  clearNotification (state, key) {
-    Vue.delete(state.notifications, key)
-  },
+  // clearNotification (state, key) {
+  //   Vue.delete(state.notifications, key)
+  // },
 
   /**
    * Clear state, set to null

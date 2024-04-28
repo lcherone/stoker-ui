@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nav class="navbar fixed-top navbar-dark bg-dark navbar-expand-lg">
+    <nav class="navbar fixed-top navbar-dark bg-dark navbar-expand-sm">
       <nuxt-link class="navbar-brand" to="/">
         {{ $config.title }}
       </nuxt-link>
@@ -81,15 +81,6 @@
 import { mapState } from 'vuex'
 
 export default {
-  // props: {
-  //     // inModal: {
-  //     //   type: Boolean,
-  //     //   default: false
-  //     // }
-  // },
-  data: () => ({
-    loading: true
-  }),
   computed: {
     ...mapState({
       header: state => state.header
@@ -106,4 +97,18 @@ export default {
 }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss" scoped>
+.navbar {
+  padding: .25rem 1rem;
+}
+
+.navbar-brand {
+  padding: 0;
+  font-family: 'Jersey 15', serif;
+  font-size: 28px;
+}
+
+.nuxt-link-active:not(.navbar-brand) {
+  text-decoration: underline;
+}
+</style>

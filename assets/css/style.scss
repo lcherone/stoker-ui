@@ -2,7 +2,7 @@
  ** StokerUI
  */
 
-// $body-bg: transparent;
+$body-bg: #f3f3f3;
 // $body-color: #212529;
 
 // this colour is used for primary buttons
@@ -32,23 +32,23 @@
 
 //$border-radius: 0rem;
 
-// $link-color: rgb(23, 78, 150);
+$link-color: #3d16bb;
 
 // $spacer: .8rem; //  Specifies the default spacer value for our spacer utilities. (default: 1rem)
-// $enable-rounded: true; //  Enables predefined border-radius styles on various components.
-// $enable-shadows: false; //  Enables predefined box-shadow styles on various components.
-// $enable-gradients: false; //  Enables predefined gradients via background-image styles on various components.
-// $enable-transitions: true; //  Enables predefined transitions on various components.
-// $enable-grid-classes: true; //  Enables the generation of CSS classes for the grid system (e.g., .container, .row, .col-md-1, etc.).
-// $enable-caret: true; //  Enables the caret on dropdowns
-// $enable-print-styles: true; //  Enables styles for optimizing printing.
-// $enable-rfs: true;
-// $enable-validation-icons: true;
-// $enable-negative-margins: false;
-// $enable-deprecation-messages: false;
-// $enable-important-utilities: true;
-// $enable-prefers-reduced-motion-media-query: true;
-// $enable-pointer-cursor-for-buttons: true;
+$enable-rounded: true; //  Enables predefined border-radius styles on various components.
+$enable-shadows: false; //  Enables predefined box-shadow styles on various components.
+$enable-gradients: false; //  Enables predefined gradients via background-image styles on various components.
+$enable-transitions: true; //  Enables predefined transitions on various components.
+$enable-grid-classes: true; //  Enables the generation of CSS classes for the grid system (e.g., .container, .row, .col-md-1, etc.).
+$enable-caret: true; //  Enables the caret on dropdowns
+$enable-print-styles: true; //  Enables styles for optimizing printing.
+$enable-rfs: true;
+$enable-validation-icons: true;
+$enable-negative-margins: false;
+$enable-deprecation-messages: false;
+$enable-important-utilities: true;
+$enable-prefers-reduced-motion-media-query: true;
+$enable-pointer-cursor-for-buttons: true;
 
 // // input shadow/focus
 //  $input-btn-focus-width: .04rem !default;
@@ -91,12 +91,6 @@ body {
     -webkit-font-smoothing: antialiased;
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: transparent;
-
-    background-color: #f3f3f3;
-}
-
-.navbar-brand {
-    font-family: 'Jersey 15', serif;
 }
 
 h1,
@@ -114,17 +108,6 @@ p {
   font-size: 1rem;
   line-height: 1.4rem;
   color: #000;
-}
-
-.news p {
-    font-size: 1.3rem;
-    line-height: 1.9rem;
-    font-family: "IBM Plex Serif",serif;
-    color: #000;
-}
-
-.news .intro-quote {
-
 }
 
 ul {
@@ -168,4 +151,15 @@ img {
     margin-top: -100px;
     margin-left: -3rem;
     color: #dcdee2;
+}
+
+.VueTables__limit,
+.VueTables__search {
+    display: inline-block;
+
+    .VueTables__limit-field label,
+    .VueTables__search-field label {
+        display: inline-block; 
+        margin-right: 10px;
+    }
 }

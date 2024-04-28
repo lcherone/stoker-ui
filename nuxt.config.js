@@ -77,6 +77,10 @@ export default {
       src: '~plugins/modal',
       mode: 'client'
     },
+    {
+      src: '~plugins/vue-tables',
+      mode: 'client'
+    }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -126,7 +130,7 @@ export default {
   },
 
   bootstrapVue: {
-    icons: false,
+    // icons: false,
     bootstrapCSS: false,
     components: [
       'BNavbar',
