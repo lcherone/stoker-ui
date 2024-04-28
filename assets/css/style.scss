@@ -81,7 +81,9 @@ $enable-pointer-cursor-for-buttons: true;
 }
 
 html,
-body, #__app, #__layout {
+body,
+#__app,
+#__layout {
     height: 100%;
     width: 100%;
     max-width: 100%
@@ -99,15 +101,15 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Kanit', serif;
-  font-weight: 600;
+    font-family: 'Kanit', serif;
+    font-weight: 600;
 }
 
 p {
-  font-family: 'Roboto', serif;
-  font-size: 1rem;
-  line-height: 1.4rem;
-  color: #000;
+    font-family: 'Roboto', serif;
+    font-size: 1rem;
+    line-height: 1.4rem;
+    color: #000;
 }
 
 ul {
@@ -153,13 +155,44 @@ img {
     color: #dcdee2;
 }
 
+.modal-header {
+    background-color: #f1f1f2;
+    padding: .5rem 1rem;
+
+    .close {
+        padding: 10px;
+        margin: -5px;
+    }
+}
+
+.modal-title {
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.table th,
+.table td {
+    padding: 0.4rem .5rem;
+    font-size: 14px;
+}
+
 .VueTables__limit,
 .VueTables__search {
     display: inline-block;
 
     .VueTables__limit-field label,
     .VueTables__search-field label {
-        display: inline-block; 
+        display: inline-block;
         margin-right: 10px;
     }
+}
+
+.VuePagination__count {
+    font-size: 14px;
+    margin-top: 5px;
+    color: #575757;
+}
+
+.VuePagination__pagination-item .page-link {
+    padding: 0.35rem 0.75rem;
 }
