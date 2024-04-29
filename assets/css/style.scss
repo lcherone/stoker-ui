@@ -3,6 +3,31 @@
  */
 
 $body-bg: #f3f3f3;
+//
+$blue: #2C338D !default;
+$blue-dark: #1c445f !default;
+$green: #5cb85c !default;
+$indigo: #6610f2 !default;
+$purple: #563d7c !default;
+$pink: #e83e8c !default;
+$red: #e90000 !default;
+$orange: #f60 !default;
+$yellow: #f60 !default; // is used in btn-warning, yellow seems too yellow
+$gold: #9c824a !default;
+$teal: #20c997 !default;
+$cyan: rgba(0, 139, 139, 0.75) !default;
+$gray-light: #d0d6db !default;
+$gray-dark: #6e6e6e !default;
+$gray: #919191 !default;
+$cyan: #17a2b8 !default;
+$dark: #242424 !default;
+$black: #000 !default;
+$border-color: $gray-light;
+$card-border-color: $gray-light !default;
+$nav-tabs-link-active-border-color: $gray-light !default;
+$input-border-color: $gray-light !default;
+
+$grid-gutter-width: 18px !default; //  Specifies the width between columns. (default: 30px)
 // $body-color: #212529;
 
 // this colour is used for primary buttons
@@ -32,10 +57,14 @@ $body-bg: #f3f3f3;
 
 //$border-radius: 0rem;
 
-$link-color: #3d16bb;
+$link-color: #007088;
+
+$navbar-dark-color: #e9e9e9;
+$table-accent-bg: #f9f9f9;
+$pagination-active-bg: #00AACE;
 
 // $spacer: .8rem; //  Specifies the default spacer value for our spacer utilities. (default: 1rem)
-$enable-rounded: true; //  Enables predefined border-radius styles on various components.
+$enable-rounded: false; //  Enables predefined border-radius styles on various components.
 $enable-shadows: false; //  Enables predefined box-shadow styles on various components.
 $enable-gradients: false; //  Enables predefined gradients via background-image styles on various components.
 $enable-transitions: true; //  Enables predefined transitions on various components.
@@ -49,6 +78,13 @@ $enable-deprecation-messages: false;
 $enable-important-utilities: true;
 $enable-prefers-reduced-motion-media-query: true;
 $enable-pointer-cursor-for-buttons: true;
+
+$input-btn-focus-width: 0.04rem !default;
+$input-focus-border-color: rgba($gray, 1) !default;
+$input-border-color: rgba($black, 1) !default;
+$input-focus-box-shadow: 0 0 0 $input-btn-focus-width rgba($gray, 0) !default;
+
+$border-color: $gray-light;
 
 // // input shadow/focus
 //  $input-btn-focus-width: .04rem !default;
@@ -76,6 +112,10 @@ $enable-pointer-cursor-for-buttons: true;
     box-sizing: border-box;
 }
 
+*:focus-visible {
+    outline: none;
+}
+
 [v-cloak]>* {
     display: none
 }
@@ -93,6 +133,15 @@ body {
     -webkit-font-smoothing: antialiased;
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: transparent;
+}
+
+a,
+button,
+input,
+.btn:focus,
+.btn.focus {
+    outline: 0 !important;
+    box-shadow: 0 0 0 0 !important;
 }
 
 h1,
@@ -156,7 +205,8 @@ img {
 }
 
 .modal-header {
-    background-color: #f1f1f2;
+    background-color: #e9e9e9;
+    border-bottom: solid 1px #bebebe;
     padding: .5rem 1rem;
 
     .close {

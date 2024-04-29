@@ -5,27 +5,11 @@
       description="View and manage stoker deployments"
       canonical="/deployments"
     />
-
     <div class="container-fluid">
       <div class="row">
         <div class="col-12">
           <alert v-if="alert.message" :alert="alert" />
-
           <v-client-table v-model="items" :columns="tableColumns" :options="tableOptions" />
-
-          <!--
-          <pre>{{ res }}</pre>
-
-          {{ $route.path }}
-
-          <pre>{{ header }}</pre>
-          <pre>{{ $state }}</pre>
-          <pre>{{ $store.state.config }}</pre>
-
-          <button class="btn btn-info" @click="openModal">
-            Test
-          </button>
-        -->
         </div>
       </div>
     </div>
@@ -39,12 +23,7 @@ export default {
   name: 'Deployments',
   data () {
     return {
-      res: null,
-      alert: {
-        message: 'This is an alert',
-        type: 'alert-primary',
-        dismissible: true
-      },
+      alert: {},
       items: [],
       tableColumns: [
         'Handle',
@@ -85,45 +64,35 @@ export default {
       header: state => state.header
     })
   },
-  created () {
-    // this.state.loading = true
+  beforeCreate () {
+    this.items = this.$storage.deployments || []
   },
-  mounted () {
+  beforeMount () {
+    console.log('page-deployments mounted')
     this.$nextTick(this.init)
+
+    this.$event.on('refresh.branch', this.init)
+    this.$event.on('refresh.machine', this.init)
+    this.$event.on('refresh.refreshed', this.init)
   },
   methods: {
     init () {
-      this.$ajax.get('/deployment').then((res) => { this.items = res })
-      // this.get('/api/stoker/deployment').then((result) => this.items = result);
-      // this.state.loading = false
+      this.items = this.$storage.deployments || []
+
+      this.$ajax.get('/deployment').then((res) => {
+        this.items = res
+
+        this.$storage.deployments = res
+      }).catch(() => {
+        this.alert = {
+          message: 'Failed to load deployments, refresh page or try again.',
+          type: 'alert-danger',
+          dismissible: true
+        }
+      })
     }
   }
-  // methods: {
-  //   openModal () {
-  //     this.$store.commit('header/set', { key: 'loading', value: false })
-
-  //     this.$state.table_limit++
-
-  //     this.$modal.show({
-  //       static: true,
-  //       centered: true,
-  //       size: 'modal-lg',
-  //       title: 'Hello, Modal!',
-  //       text: 'This is the body of the modal.',
-  //       buttons: [
-  //         {
-  //           title: 'Close',
-  //           type: 'btn-secondary',
-  //           handler: () => {
-  //             this.$modal.hide('modal')
-  //           }
-  //         }
-  //       ]
-  //     })
-  //   }
-  // }
 }
 </script>
 
-<style lang="scss">
-</style>
+<style lang="scss"></style>

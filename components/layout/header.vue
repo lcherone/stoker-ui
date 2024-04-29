@@ -1,8 +1,8 @@
 <template>
   <div>
-    <nav class="navbar fixed-top navbar-dark bg-dark navbar-expand-sm">
+    <nav class="navbar fixed-top navbar-dark navbar-expand-sm">
       <nuxt-link class="navbar-brand" to="/">
-        {{ $config.title }}
+        <span>://</span> Stoker<span>UI</span>
       </nuxt-link>
       <button
         class="navbar-toggler"
@@ -98,14 +98,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 .navbar {
   padding: .25rem 1rem;
+  background-color: #00AACE;
 }
 
 .navbar-brand {
   padding: 0;
   font-family: 'Jersey 15', serif;
   font-size: 28px;
+  text-shadow: 2px 2px #3e3e3e;
+  span:first-of-type {
+    font-size: larger;
+  }
+  span:last-of-type {
+    color: #e9e5e5;
+  }
 }
 
 .nuxt-link-active:not(.navbar-brand) {

@@ -28,6 +28,11 @@ export default {
           data: this.data,
           index: this.index,
           column: this.column
+        },
+        events: {
+          refresh: () => {
+            this.$event.emit('refresh.' + this.column.toLowerCase())
+          }
         }
       })
     }

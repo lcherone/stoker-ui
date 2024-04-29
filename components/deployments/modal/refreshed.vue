@@ -62,9 +62,11 @@ export default {
   },
   methods: {
     close () {
+      this.$emit('refresh')
       this.$modal.hide()
     },
     initRefresh () {
+      this.$storage.deployments = []
       this.submitted = true
       this.post('/deployment/refresh', {
         handle: this.data.Handle,

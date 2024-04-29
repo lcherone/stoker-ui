@@ -33,9 +33,14 @@ export default {
     },
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'robots', content: 'noindex, nofollow' },
       { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' }
+      { name: 'format-detection', content: 'telephone=no' },
+      {
+        name: 'viewport',
+        content:
+          'width=device-width, initial-scale=1.0, user-scalable=yes'
+      }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
@@ -58,11 +63,14 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     {
-      src: '~plugins/event.js'
+      src: '~plugins/storage.js'
     },
     {
-      src: '~plugins/state.js'
+      src: '~plugins/event.js'
     },
+    // {
+    //   src: '~plugins/state.js'
+    // },
     {
       src: '~plugins/utils.js'
     },
@@ -133,47 +141,47 @@ export default {
     // icons: false,
     bootstrapCSS: false,
     components: [
-      'BNavbar',
-      'BNavbarNav',
-      'BNavbarBrand',
-      'BNavItem',
-      'BNavItemDropdown',
-      'BSpinner',
-      'BDropdown',
-      'BDropdownText',
-      'BDropdownForm',
-      'BDropdownItem',
-      'BDropdownItemButton',
-      'BDropdownDivider',
-      'BSidebar',
-      'BCollapse',
-      'BImg',
-      'BImgLazy',
-      'BBadge',
-      'BForm',
-      'BFormTags',
-      'BFormTag',
-      'BFormSelect',
-      'BFormGroup',
-      'BFormInput',
-      'BFormCheckbox',
-      'BFormDatepicker',
-      'BFormTimepicker',
-      'BInputGroup',
-      'BInputGroupAppend',
-      'BListGroup',
-      'BListGroupItem',
-      'BProgress',
-      'BButton',
-      'BButtonGroup',
-      'BSkeleton',
-      'BSkeletonWrapper',
-      'BSkeletonImg',
-      'BTooltip',
-      'BMedia',
-      'BTabs',
-      'BTab',
-      'BOverlay'
+      // 'BNavbar',
+      // 'BNavbarNav',
+      // 'BNavbarBrand',
+      // 'BNavItem',
+      // 'BNavItemDropdown',
+      // 'BSpinner',
+      // 'BDropdown',
+      // 'BDropdownText',
+      // 'BDropdownForm',
+      // 'BDropdownItem',
+      // 'BDropdownItemButton',
+      // 'BDropdownDivider',
+      // 'BSidebar',
+      // 'BCollapse',
+      // 'BImg',
+      // 'BImgLazy',
+      // 'BBadge',
+      // 'BForm',
+      // 'BFormTags',
+      // 'BFormTag',
+      // 'BFormSelect',
+      // 'BFormGroup',
+      // 'BFormInput',
+      // 'BFormCheckbox',
+      // 'BFormDatepicker',
+      // 'BFormTimepicker',
+      // 'BInputGroup',
+      // 'BInputGroupAppend',
+      // 'BListGroup',
+      // 'BListGroupItem',
+      // 'BProgress',
+      // 'BButton',
+      // 'BButtonGroup',
+      // 'BSkeleton',
+      // 'BSkeletonWrapper',
+      // 'BSkeletonImg',
+      // 'BTooltip',
+      // 'BMedia',
+      // 'BTabs',
+      // 'BTab',
+      // 'BOverlay'
     ],
     directives: ['VBTooltip', 'VBToggle']
   },
@@ -198,7 +206,7 @@ export default {
       compact: true
     },
     splitChunks: {
-      layouts: true,
+      layouts: false,
       pages: true,
       commons: true
     },

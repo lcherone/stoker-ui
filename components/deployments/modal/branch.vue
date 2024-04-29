@@ -78,12 +78,15 @@ export default {
   },
   methods: {
     close () {
+      this.$emit('refresh')
       this.$modal.hide()
     },
     setBranch () {
       if (!this.branch) {
         return
       }
+
+      this.$storage.deployments = []
 
       this.submitted = true
 

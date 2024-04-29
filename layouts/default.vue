@@ -5,7 +5,6 @@
     <div
       :class="[
         'content',
-        { 'has-alert': $state.alert.type },
         $route.name ? 'page-' + $route.name : 'no-min-height'
       ]"
     >
@@ -35,24 +34,23 @@ export default {
     }
   },
   created () {
-    // maintain correct device type
-    if (!process.server) {
-      const getDeviceType = () => {
-        this.$state.devicetype = this.getDeviceType()
-        // this.$store.commit('state/set', {
-        //   key: 'device',
-        //   value: String(this.$state.devicetype)
-        // })
-      }
+    // // maintain correct device type
+    // if (!process.server) {
+    //   const getDeviceType = () => {
+    //     this.$state.devicetype = this.getDeviceType()
+    //     // this.$store.commit('state/set', {
+    //     //   key: 'device',
+    //     //   value: String(this.$state.devicetype)
+    //     // })
+    //   }
 
-      //
-      getDeviceType()
+    //   //
+    //   getDeviceType()
 
-      //
-      this.$event.on('window:resize', getDeviceType)
-      //
-      this.$event.on('window:orientationchange', getDeviceType)
-    }
+    //   //
+    //   this.$event.on('window:resize', getDeviceType)
+    //   //
+    //   this.$event.on('window:orientationchange', getDeviceType)
   }
 }
 </script>
@@ -63,6 +61,6 @@ export default {
 .content {
   background-color: #fff;
   min-height: calc(100vh - 40px);
-  padding: 65px 0 15px 0;
+  padding: 70px 0 15px 0;
 }
 </style>
