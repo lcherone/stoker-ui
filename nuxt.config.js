@@ -14,6 +14,8 @@ export default {
     API_URL: site.url + '/stoker'
   },
 
+  baseURL: '/stoker-ui/',
+
   // usable anywhere via $config
   publicRuntimeConfig: {
     ...site
